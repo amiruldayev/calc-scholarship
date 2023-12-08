@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/background.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/css/input.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/css/button.css}">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .col-8 {
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container mx-auto col-8">
+    <form action="/gradeResult" method="post">
+    <div class="container">
+
+        <div class="title">Midterm grade</div>
+        <input class="input" name="midterm" type="number">
+
+    </div>
+    <br><br>
+    <div class="container">
+
+        <div class="title">Endterm grade</div>
+        <input class="input" name="endterm" type="number">
+
+    </div>
+    <br>
+    <button class="button" type="submit">
+        Calculate
+    </button>
+    </form>
+</div>
+kuka lox
+</body>
+</html>

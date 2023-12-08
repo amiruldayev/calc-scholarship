@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade Result</title>
+
+    <!-- Добавляем ссылку на Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/background.css}">
+</head>
+<body>
+<h2 style="color: #BB8FCE">You need to score points to get a scholarship: <span th:text="${totalGrade}"></span></h2>
+
+<!-- Добавляем контейнер для диаграммы -->
+<div style="width: 200px; height: 200px;">
+    <canvas id="gradeChart"></canvas>
+</div>
+
+<script>
+    // Получаем значение totalGrade из модели Thymeleaf
+    var totalGrade = [[${totalGrade}]];
+
+    // Инициализируем круговую диаграмму с использованием Chart.js
+    var ctx = document.getElementById('gradeChart').getContext('2d');
+    var gradeChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Total Grade'],
+            datasets: [{
+                data: [totalGrade, 100 - totalGrade],
+                backgroundColor: ['#6C3483', '#424949'],
+            }],
+        },
+        options: {
+            cutoutPercentage: 80, // Процент вырезки для круговой диаграммы
+        },
+    });
+</script>
+</body>
+</html>
