@@ -6,4 +6,6 @@ body {
     radial-gradient(rgba(255, 255, 255, 0.712) 10%, transparent 1%);
 
     background-size: 11px 11px;
+
+    flex: 1;
 }
